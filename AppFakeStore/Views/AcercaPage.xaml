@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFakeStore.Views.AcercaPage"
+             xmlns:Skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             Title="Datos Programador"
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Imagen Animada (SKLottieView) en la parte superior derecha -->
+        <Skia:SKLottieView Grid.Row="0" Grid.Column="1"
+                            HeightRequest="100"
+                            RepeatCount="-1"
+                            Source="dev.json"
+                            Margin="0,0,10,0"/>
+
+        <!-- Botón Volver -->
+        <Button x:Name="btnVolver"
+                Text="Volver"
+                BackgroundColor="Black"
+                TextColor="Orange"
+                WidthRequest="160"
+                HeightRequest="48"
+                Margin="25,48,60,0"
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                Clicked="BtnVolver_Clicked">
+            <Button.ImageSource>
+                <FontImageSource FontFamily="AwesomeSolid" Glyph="&#xf060;" Size="24"/>
+            </Button.ImageSource>
+        </Button>
+        
+        
+        <!-- Texto Datos del Programador -->
+        <Label x:Name="textView"
+               Text="Datos del Programador"
+               FontSize="20"
+               FontAttributes="Bold"
+               TextColor="White"
+               Margin="0,20,0,0"
+               Grid.Row="1"
+               Grid.ColumnSpan="2"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"/>
+
+        <!-- Imagen del Programador -->
+        <Image x:Name="imageView"
+               Source="jp.png"
+               WidthRequest="100"
+               HeightRequest="100"
+               Margin="30,20,30,5"
+               Grid.Row="2"
+               Grid.ColumnSpan="2"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"/>
+
+        <!-- Información Adicional -->
+        <StackLayout Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+            <Label x:Name="textView4"
+                   Text="PUHL, Juan"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   Margin="0,20,0,0"/>
+            <Label x:Name="textView5"
+                   Text="Tec. Sup. en Desarrollo de Software"
+                   FontSize="14"
+                   TextColor="White"
+                   Margin="0,0,0,0"/>
+            <Label x:Name="textView6"
+                   Text="ITES - Santa Rosa - La Pampa"
+                   FontSize="14"
+                   TextColor="White"/>
+        </StackLayout>
+
+        <!-- Botón Llamar con Icono -->
+        <Button x:Name="btnLlamar"
+                Text="Llamar"
+                BackgroundColor="Black"
+                TextColor="Orange"
+                WidthRequest="130"
+                HeightRequest="48"
+                Margin="50,10,20,20"
+                Grid.Row="4"
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                VerticalOptions="End"
+                Clicked="BtnLlamar_Clicked">
+            <Button.ImageSource>
+                <FontImageSource FontFamily="AwesomeSolid" Glyph="&#xf095;" />
+            </Button.ImageSource>
+        </Button>
+
+        <!-- Botón Correo con Icono -->
+        <Button x:Name="btnMail"
+                Text="Correo"
+                BackgroundColor="Black"
+                TextColor="Orange"
+                WidthRequest="130"
+                HeightRequest="48"
+                Margin="20,10,50,20"
+                Grid.Row="4"
+                Grid.Column="1"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Clicked="BtnMail_Clicked">
+            <Button.ImageSource>
+                <FontImageSource FontFamily="AwesomeSolid" Glyph="&#xf0e0;" />
+            </Button.ImageSource>
+        </Button>
+
+    </Grid>
+</ContentPage>

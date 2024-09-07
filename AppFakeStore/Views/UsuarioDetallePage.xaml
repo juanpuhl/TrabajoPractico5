@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppFakeStore.Views"
+             xmlns:models="clr-namespace:AppFakeStore.Models"
+             xmlns:vm="clr-namespace:AppFakeStore.ViewModels"
+             x:DataType="vm:UsuarioDetalleViewModel"
+             x:Class="AppFakeStore.Views.UsuarioDetallePage"
+             >
+
+    <StackLayout Padding="20">
+
+        <!-- Sección con icono y título -->
+        <Grid ColumnDefinitions="Auto, *" VerticalOptions="Start" Margin="0,0,0,20">
+            <!-- Icono de usuario grande -->
+            <Label Text="&#xf508;
+"                  FontFamily="AwesomeSolid" 
+                   FontSize="60" 
+                   TextColor="Gray"
+                   Grid.Column="0"
+                   VerticalOptions="Center"/>
+
+            <!-- Título al lado del icono -->
+            <Label Text="Datos del Usuario" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   TextColor="WhiteSmoke"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   Margin="10,0,0,0"/>
+        </Grid>
+
+        <!-- Sección para los demás datos -->
+        <Frame BorderColor="LightGray" CornerRadius="5" Padding="10">
+            <StackLayout Spacing="10">
+
+                <!-- Nombre del usuario -->
+                <Label Text="Nombre:">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Nombre: " FontAttributes="Bold"/>
+                            <Span Text="{Binding Usuario.Name.Firstname}" TextColor="White"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <!-- Apellido del usuario -->
+                <Label Text="Apellido:">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Apellido: " FontAttributes="Bold"/>
+                            <Span Text="{Binding Usuario.Name.Lastname}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <!-- Email del usuario -->
+                <Label Text="Email:">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Email: " FontAttributes="Bold"/>
+                            <Span Text="{Binding Usuario.Email}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <!-- Ciudad del usuario -->
+                <Label Text="Ciudad:">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Ciudad: " FontAttributes="Bold"/>
+                            <Span Text="{Binding Usuario.Address.City}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <!-- Calle del usuario -->
+                <Label Text="Calle:">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Calle: " FontAttributes="Bold"/>
+                            <Span Text="{Binding Usuario.Address.Street}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <!-- Puedes agregar más propiedades según sea necesario -->
+
+            </StackLayout>
+        </Frame>
+
+    </StackLayout>
+</ContentPage>

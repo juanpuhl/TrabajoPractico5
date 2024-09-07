@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFakeStore.Views.LoginPage"
+             xmlns:vm="clr-namespace:AppFakeStore.ViewModels"
+             xmlns:Skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             x:DataType="vm:LoginViewModel"
+             Title="{Binding Title}"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions=".3* , .7*">
+        <!-- Imagen de fondo -->
+        <Image Aspect="AspectFill" Source="heardlogo.png"/>
+        <!-- Fondo de color -->
+        <Grid BackgroundColor="#66A3D2" Opacity="0.7"/>
+
+        <!-- Logo e imagen animada -->
+        <Grid ColumnDefinitions="* , *">
+            <Image Aspect="AspectFit" HeightRequest="100" Source="logoapp.png" Margin="0, -20, 0, 0"/>
+            <!-- Aquí podrías agregar un elemento SKLottieView si tienes una animación disponible -->
+            <Skia:SKLottieView Grid.Column="1" HeightRequest="100" RepeatCount="-1" Source="opener-loading.json" />
+        </Grid>
+
+        <!-- Contenido principal del formulario -->
+        <Grid Grid.Row="1">
+            <!-- Fondo del formulario -->
+            <RoundRectangle Margin="-5, -30, -5, -2" CornerRadius="30,30,0,0" Fill="White" />
+            <VerticalStackLayout Margin="30,0,30,0">
+                <!-- Títulos -->
+                <Label FontAttributes="Bold" FontFamily="HelvChildren" Text="Bienvenidos!" TextColor="#2D2D2D" HorizontalOptions="Center"/>
+                <Label FontFamily="GothamBold" Text="Ingresar para continuar" TextColor="#A3A3A4" HorizontalOptions="Center"/>
+
+                <!-- Campo de entrada de usuario con binding -->
+                <Grid Margin="0,30,0,0" ColumnDefinitions=".2*,.8*">
+                    <RoundRectangle BackgroundColor="#EDEBF6" CornerRadius="10" HeightRequest="60" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="60"/>
+                    <Image HorizontalOptions="Center">
+                        <Image.Source>
+                            <FontImageSource FontFamily="AwesomeSolid" Glyph="&#xf505;" Size="44" Color="#4F3F9b" />
+                        </Image.Source>
+                    </Image>
+                    <Entry Grid.Column="1" Placeholder="Usuario" Text="{Binding Username}" VerticalOptions="Center"
+                            TextColor="#2D2D2D"/>
+                </Grid>
+
+                <!-- Campo de entrada de contraseña con binding -->
+                <Grid Margin="0,30,0,0" ColumnDefinitions=".2*,.8*">
+                    <RoundRectangle BackgroundColor="#EDEBF6" CornerRadius="10" HeightRequest="60" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="60"/>
+                    <Image HorizontalOptions="Center">
+                        <Image.Source>
+                            <FontImageSource FontFamily="AwesomeSolid" Glyph="&#xf084;" Size="44" Color="#4F3F9b" />
+                        </Image.Source>
+                    </Image>
+                    <Entry Grid.Column="1" Placeholder="Password" Text="{Binding Password}" IsPassword="True" VerticalOptions="Center"
+                            TextColor="#2D2D2D"/>
+                </Grid>
+
+                <!-- Botón de inicio de sesión con binding de comando -->
+                <Button Text="Login" Command="{Binding LoginCommand}" BackgroundColor="#4F3F9B" TextColor="#FBF6FD" Margin="0,20,0,0" CornerRadius="5" HorizontalOptions="Center"/>
+
+                <!-- Enlace de olvido de contraseña -->
+                <Label Text="¿Olvidó su contraseña?" TextDecorations="Underline" HorizontalOptions="Center" TextColor="#4F3F9B" Margin="0,20,0,-10"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

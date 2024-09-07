@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"    
+             xmlns:vm="clr-namespace:AppFakeStore.ViewModels"
+             x:DataType="vm:MainViewModel"
+             Title="{Binding Title}"
+             x:Class="AppFakeStore.MainPage">
+
+    <ScrollView Margin="10">
+        <VerticalStackLayout>
+            <Grid 
+                RowSpacing="10"
+                ColumnSpacing="10"
+                ColumnDefinitions="*,*" 
+                RowDefinitions="Auto, Auto, Auto">
+
+                <Label Text="MENU DE OPCIONES" Grid.ColumnSpan="2" Grid.Row="0" HorizontalOptions="Center" />
+
+                <!-- Botón Productos en la primera fila y primera columna -->
+                <Button ContentLayout="Top, 5" Grid.Row="1" Grid.Column="0" Text="Productos" HeightRequest="85" Command="{Binding GoToProductoListaCommand}" BackgroundColor="Black" TextColor="Orange">
+                    <Button.ImageSource>
+                        <FontImageSource Size="22" FontFamily="MaterialDesignIcons" Glyph="&#xe1bd;" Color="White" />
+                    </Button.ImageSource>
+                </Button>
+
+                <!-- Botón Usuarios en la primera fila y segunda columna -->
+                <Button ContentLayout="Top, 5" Grid.Row="1" Grid.Column="1" Text="Usuarios" HeightRequest="85" Command="{Binding GoToUsuarioListaCommand}" BackgroundColor="Black" TextColor="Orange">
+                    <Button.ImageSource>
+                        <FontImageSource Size="22" FontFamily="MaterialDesignIcons" Glyph="&#xe7fd;" Color="White" />
+                    </Button.ImageSource>
+                </Button>
+
+                <!-- Botón Acerca en la segunda fila y primera columna -->
+                <Button ContentLayout="Top, 5" Grid.Row="2" Grid.Column="0" Text="Acerca" HeightRequest="85" Command="{Binding GoToAcercaCommand}" BackgroundColor="Black" TextColor="Orange">
+                    <Button.ImageSource>
+                        <FontImageSource Size="22" FontFamily="MaterialDesignIcons" Glyph="&#xe88e;" Color="White" />
+                    </Button.ImageSource>
+                </Button>
+
+                <!-- Botón Salir en la segunda fila y segunda columna -->
+                <Button ContentLayout="Top, 5" Grid.Row="2" Grid.Column="1" Text="Salir" HeightRequest="85" Command="{Binding ExitCommand}" BackgroundColor="Black" TextColor="Orange">
+                    <Button.ImageSource>
+                        <FontImageSource Size="22" FontFamily="MaterialDesignIcons" Glyph="&#xe9ba;" Color="White" />
+                    </Button.ImageSource>
+                </Button>
+
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
